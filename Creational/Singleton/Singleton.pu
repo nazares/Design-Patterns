@@ -1,0 +1,7 @@
+@startuml Singleton
+    class Singleton {
+        - instance : Singleton
+        - Singleton()
+        + getInstance():Singleton
+    }
+@enduml

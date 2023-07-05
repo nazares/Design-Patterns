@@ -19,11 +19,9 @@ Prototype: This pattern allows you to create new objects by cloning existing one
 Each creational pattern has its own advantages and use cases, and choosing the right one depends on the specific requirements of your project. By applying these patterns, you can improve the maintainability, flexibility, and reusability of your code.
 
 ### Singleton Pattern
+<!--
 
-<center>
-
-```plantuml
-@startuml
+@startuml Diagram
 class Singleton
 {
     - instance: Singleton
@@ -31,10 +29,12 @@ class Singleton
     + getInstance(): Singleton
 }
 
-@enduml
-```
+Singleton::
 
-</center>
+@enduml
+-->
+
+![Singleton](out/Singleton.svg)
 
 The Singleton pattern is a design pattern that restricts the instantiation of a class to a single object. This pattern ensures that there is only one instance of a class throughout the application and provides a global point of access to that instance.
 
@@ -50,7 +50,7 @@ Inside the method, check if the instance variable is empty. If it is, create a n
 
 Here's an example of implementing the Singleton pattern in PHP:
 
-_Singleton.php_
+> Singleton.php
 
 ```php
 
