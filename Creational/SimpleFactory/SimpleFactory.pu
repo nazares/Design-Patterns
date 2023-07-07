@@ -1,0 +1,46 @@
+@startuml
+interface AbstractFactory {
+    +methodA(): AbstractProductA
+    +methodB(): AbstractProductB
+}
+
+class ConcreteFactory1 implements AbstractFactory {
+    +methodA(): AbstractProductA
+    +methodB(): AbstractProductB
+}
+
+class ConcreteFactory2 implements AbstractFactory {
+    +methodA(): AbstractProductA
+    +methodB(): AbstractProductB
+}
+
+abstract class AbstractProductA {
+    {abstract} methodX()
+}
+
+abstract class AbstractProductB {
+    {abstract} methodY()
+}
+
+class ConcreteProductA1 extends AbstractProductA {
+    methodX()
+}
+
+class ConcreteProductA2 extends AbstractProductA {
+    methodX()
+}
+
+class ConcreteProductB1 extends AbstractProductB {
+    methodY()
+}
+
+class ConcreteProductB2 extends AbstractProductB {
+    methodY()
+}
+
+class Client {
+    method()
+}
+}
+
+@enduml
