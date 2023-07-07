@@ -1,7 +1,11 @@
 @startuml Singleton
-    class Singleton {
-        - instance : Singleton
-        - Singleton()
-        + getInstance():Singleton
-    }
+title Singleton pattern
+
+class Singleton <<final class>> {
+    -{static} instance : Singleton
+    - Singleton()
+    +{static} getInstance() : Singleton
+}
+
+Singleton --> Singleton:instance
 @enduml
