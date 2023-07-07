@@ -56,16 +56,33 @@ Here's an example of implementing the Singleton pattern in PHP:
 
 <?php
 
-namespace Patterns\Creational;
+declare(strict_types=1);
+
+namespace DesignPatterns\Creational\Singleton;
+
+use Exception;
 
 final class Singleton
 {
     private static ?self $instance = null;
+
+    // Private constructor to prevent direct instantiation
     private function __construct()
     {
-        //
+        // initialization code
     }
 
+    private function __clone()
+    {
+        // Prevent clone instantiation
+    }
+
+        public function __wakeup()
+    {
+        throw new Exception('Cannot unserialize singleton');
+    }
+
+    // The static method thatcontrols the access to the singleton instance
     public static function getInstance()
     {
         if (null === self::$instance)
@@ -73,6 +90,39 @@ final class Singleton
             self::$instance = new self();
         }
         return self::$instance;
+    }
+}
+```
+
+> Usage
+>
+```php
+$instance = Singleton::getInstance();
+```
+
+### Test
+
+> ../Tests/SingletonTest.php
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace DesignPatterns\Creational\Singleton\Tests;
+
+use DesignPatterns\Creational\Singleton\Singleton;
+use PHPUnit\Framework\TestCase;
+
+class SingletonTest extends TestCase
+{
+    public function testUniqueness()
+    {
+        $firstCall = Singleton::getInstance();
+        $secondCall = Singleton::getInstance();
+
+        $this->assertInstanceOf(Singleton::class, $firstCall);
+        $this->assertSame($firstCall, $secondCall);
     }
 }
 ```
