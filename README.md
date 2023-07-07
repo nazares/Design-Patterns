@@ -1,5 +1,14 @@
 # Deign Patterns
 
+```mermaid
+classDiagram
+    class [[SingletonClass]] {
+        + <<singletonInstance>> instance
+        + private SingletonClass()
+        + getInstance(): SingletonClass
+    }
+```
+
 ## Creational
 
 Creational patterns are a set of design patterns in software development that focus on creating objects in a way that is flexible, extensible, and reusable. They provide solutions to common problems related to object creation and initialization, ensuring that the process is efficient and maintainable.
@@ -18,7 +27,17 @@ Prototype: This pattern allows you to create new objects by cloning existing one
 
 Each creational pattern has its own advantages and use cases, and choosing the right one depends on the specific requirements of your project. By applying these patterns, you can improve the maintainability, flexibility, and reusability of your code.
 
-### Singleton Pattern
+### Abstract Factory +
+
+### Builder +
+
+### Factory Method +
+
+### Object Pool +
+
+### Prototype +
+
+### Singleton +
 <!--
 
 @startuml Diagram
@@ -34,7 +53,7 @@ Singleton::
 @enduml
 -->
 
-![Singleton](out/Singleton.svg)
+![Singleton](Creational/Singleton/Singleton.pu)
 
 The Singleton pattern is a design pattern that restricts the instantiation of a class to a single object. This pattern ensures that there is only one instance of a class throughout the application and provides a global point of access to that instance.
 
@@ -100,7 +119,7 @@ final class Singleton
 $instance = Singleton::getInstance();
 ```
 
-### Test
+#### Test
 
 > ../Tests/SingletonTest.php
 
@@ -126,3 +145,47 @@ class SingletonTest extends TestCase
     }
 }
 ```
+
+## Structural
+
+### Adapter
+
+### Bridge
+
+### Composite
+
+### Decorator
+
+### Facade
+
+### Flyweight
+
+### Private Class Data
+
+### Proxy
+
+## Behavioral
+
+### Chain fo responsibility
+
+### Command
+
+### Interpreter
+
+### Iterator
+
+### Mediator
+
+### Memento
+
+### Null Object
+
+### Observer
+
+### State
+
+### Stategy
+
+### Template method
+
+### Visitor

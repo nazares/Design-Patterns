@@ -1,0 +1,29 @@
+@startuml AbstractFactory
+    ' skinparam linetype ortho
+    skinparam linetype polyline
+    top to bottom direction
+    hide empty members
+    interface AbstractProductOne <<interface>>
+    interface AbstractProductTwo <<interface>>
+    interface AbstractPlatform <<interface>>
+    class Class1
+    class ProductOnePlatformOne
+    class ProductOnePlatformTwo
+    class ProductTwoPlatformOne
+    class ProductTwoPlatformTwo
+    class PlatformOne
+    class PlatformTwo {
+        + makeProductOne()
+        + makeProductTwo()
+    }
+
+    Class1 -> AbstractPlatform
+    AbstractPlatform <|- (PlatformOne, PlatformTwo)
+    Class1 --> AbstractProductOne
+    ' ProductOnePlatformOne -[hidden]l- ProductOnePlatformTwo
+    AbstractProductOne <|- (ProductOnePlatformOne, ProductOnePlatformTwo)
+    Class1 ---> AbstractProductTwo
+    ' ProductTwoPlatformOne -[hidden]l- ProductTwoPlatformTwo
+    AbstractProductTwo <|-u- (ProductTwoPlatformOne, ProductTwoPlatformTwo)
+
+@enduml
