@@ -1,17 +1,5 @@
 # Deign Patterns
 
-```mermaid
----
-title: Singleton UML Diagram
----
-classDiagram
-    class Singleton{
-        - static instnace: Singleton
-        - Singleton()
-        +static getInstance()
-    }
-```
-
 ## Creational
 
 Creational patterns are a set of design patterns in software development that focus on creating objects in a way that is flexible, extensible, and reusable. They provide solutions to common problems related to object creation and initialization, ensuring that the process is efficient and maintainable.
@@ -32,6 +20,66 @@ Each creational pattern has its own advantages and use cases, and choosing the r
 
 ### Abstract Factory +
 
+```mermaid
+classDiagram
+    class AbstractFactory {
+        <<interface>>
+        +createProductA(): AbstractProductA
+        +createProductB(): AbstractProductB
+    }
+
+    class ConcreteFactory1 {
+        +createProductA(): AbstractProductA
+        +createProductB(): AbstractProductB
+    }
+
+    class ConcreteFactory2 {
+        +createProductA(): AbstractProductA
+        +createProductB(): AbstractProductB
+    }
+
+    class AbstractProductA {
+        <<interface>>
+        +operationA(): void
+    }
+
+    class ConcreteProductA1 {
+        +operationA(): void
+    }
+
+    class ConcreteProductA2 {
+        +operationA(): void
+    }
+
+    class AbstractProductB {
+        <<interface>>
+        +operationB(): void
+    }
+
+    class ConcreteProductB1 {
+        +operationB(): void
+    }
+
+    class ConcreteProductB2 {
+        +operationB(): void
+    }
+
+ConcreteFactory1 --|> AbstractFactory
+AbstractFactory <|-- ConcreteFactory2
+
+ConcreteFactory1 --> ConcreteProductA1
+ConcreteFactory1 --> ConcreteProductB1
+ConcreteProductA1 --|> AbstractProductA
+ConcreteProductB1 --|>  AbstractProductB
+
+ConcreteFactory2 --> ConcreteProductA2
+AbstractProductB <|-- ConcreteProductB2
+ConcreteFactory2 --> ConcreteProductB2
+AbstractProductA <|-- ConcreteProductA2
+```
+
+![AbstractFactory](out/AbstractFactory.svg)
+
 ### Builder +
 
 ### Factory Method +
@@ -46,9 +94,9 @@ Each creational pattern has its own advantages and use cases, and choosing the r
 @startuml Diagram
 class Singleton
 {
-    - instance: Singleton
+    - {static} instance: Singleton
     - Singleton()
-    + getInstance(): Singleton
+    + {static} getInstance(): Singleton
 }
 
 Singleton::
@@ -56,7 +104,7 @@ Singleton::
 @enduml
 -->
 
-![Singleton](Creational/Singleton/Singleton.pu)
+![Singleton](out/Singleton.svg)
 
 The Singleton pattern is a design pattern that restricts the instantiation of a class to a single object. This pattern ensures that there is only one instance of a class throughout the application and provides a global point of access to that instance.
 
