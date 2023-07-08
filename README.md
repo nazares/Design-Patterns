@@ -1,11 +1,14 @@
 # Deign Patterns
 
 ```mermaid
+---
+title: Singleton UML Diagram
+---
 classDiagram
-    class [[SingletonClass]] {
-        + <<singletonInstance>> instance
-        + private SingletonClass()
-        + getInstance(): SingletonClass
+    class Singleton{
+        - static instnace: Singleton
+        - Singleton()
+        +static getInstance()
     }
 ```
 
